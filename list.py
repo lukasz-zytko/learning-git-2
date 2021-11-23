@@ -25,7 +25,7 @@ answer4 = "" # wskaż nazwę modelu jako string
 answer5 = "" # odpowiedź podaj w formacie procentowym jako string. Np. '21%'
 
 cars = {}
-
+""""
 for i in range(0,len(sales2017)):
     if sales2017[i] == 'NA':
         sales2017[i] = 0
@@ -40,3 +40,16 @@ for i in range(0,len(sales2016)):
 
 print(sales2017)
 print(sales2016)
+"""
+for i in range(0,len(models)):
+    models[i] = models[i].replace(" - ","%")
+
+for i in range(0,len(models)):
+    for j in range(0,len(models[i])):
+        if models[i][j] == "%":
+            cars.setdefault(models[i][:(j)],{models[i][(j+1):]:dict()})
+
+#print(models[i][:(j)])
+#print(models[i][(j+1):])
+
+print(cars)
